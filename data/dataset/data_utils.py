@@ -92,14 +92,14 @@ def data_transform(datafile, max_len, batch_size):
 # # test_iter = data_transform(testFile, max_len=50)
 
 
-trainFile = 'D:/A-bus/bus_pytorch/data/dataset/partial-prediction/train.txt'
-data = generate_data(trainFile, max_len=50)  # [len, 30, max_len]
-plt.plot(list(range(1, 31)), data[0, :, 0], label='1')
-plt.plot(list(range(1, 31)), data[1, :, 0], label='2')
-plt.plot(list(range(1, 31)), data[2, :, 0], label='3')
-plt.plot(list(range(1, 31)), data[3, :, 0], label='4')
-plt.plot(list(range(1, 31)), data[4, :, 0], label='5')
-plt.plot(list(range(1, 31)), data[5, :, 0], label='6')
-plt.plot(list(range(1, 31)), data[6, :, 0], label='7')
-plt.legend()
-plt.show()
+# trainFile = 'D:/A-bus/bus_pytorch/data/dataset/1-M3723/train.txt'
+# data = generate_data(trainFile, max_len=50)  # [len, 30, max_len]
+# plt.plot(list(range(1, 31)), data[0, :, 0], label='1')
+# plt.plot(list(range(1, 31)), data[1, :, 0], label='2')
+# plt.plot(list(range(1, 31)), data[2, :, 0], label='3')
+# plt.plot(list(range(1, 31)), data[3, :, 0], label='4')
+# plt.plot(list(range(1, 31)), data[4, :, 0], label='5')
+# plt.plot(list(range(1, 31)), data[5, :, 0], label='6')
+# plt.plot(list(range(1, 31)), data[6, :, 0], label='7')
+# plt.legend()
+# plt.show()

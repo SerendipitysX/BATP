@@ -9,7 +9,7 @@ import torch.optim as optim
 import argparse
 from data.dataset.data_utils import data_transform
 from utils.Earlystopping import EarlyStopping
-from model1 import *
+from model2 import *
 from torch.utils.tensorboard import SummaryWriter
 
 layout = {
@@ -26,16 +26,16 @@ parser.add_argument('--enable_cuda', type=bool, default='True', help='enable CUD
 parser.add_argument('--seed', type=int, default=42, help='set the random seed for stabilize experiment results')
 parser.add_argument('--kt', type=int, default=3, help='kenel size of temporal convolution')
 parser.add_argument('--ks', type=int, default=3, help='kenel size of spatial convolution')
-parser.add_argument('--epoches', type=int, default=1000)
+parser.add_argument('--epoches', type=int, default=2000)
 parser.add_argument('--step_size', type=int, default=10)
 parser.add_argument('--patience', type=int, default=50, help='early stop,How long to wait after last time validation loss improved.')
 parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
 parser.add_argument('--loss', type=str, default='mse', choices=['mse'])
-parser.add_argument('--bz', type=int, default=16, help='batchsize')
+parser.add_argument('--bz', type=int, default=10, help='batchsize')
 parser.add_argument('--max_len', type=int, default=50, help='the max length of route')
 parser.add_argument('--days', type=int, default=29)
 parser.add_argument('--in_f', type=int, default=1)
-parser.add_argument('--out_f', type=int, default=128)
+parser.add_argument('--out_f', type=int, default=256)
 parser.add_argument('--hidden_dim', type=int, default=256)
 parser.add_argument('--out_dim', type=int, default=256)
 args = parser.parse_args()
@@ -60,9 +60,9 @@ def set_env(seed):
 set_env(seed=args.seed)
 
 # =============================== dataset ================================
-trainFile = 'D:/A-bus/bus_pytorch/data/dataset/partial-prediction/train.txt'
-valFile = 'D:/A-bus/bus_pytorch/data/dataset/partial-prediction/val.txt'
-testFile = 'D:/A-bus/bus_pytorch/data/dataset/partial-prediction/test.txt'
+trainFile = 'D:/A-bus/BATP/data/dataset/1-00740/train.txt'
+valFile = 'D:/A-bus/BATP/data/dataset/1-00740/val.txt'
+testFile = 'D:/A-bus/BATP/data/dataset/1-00740/test.txt'
 train_iter, zero_value1, mean1, std1 = data_transform(trainFile, max_len=args.max_len, batch_size=args.bz)
 val_iter, zero_value2, mean2, std2 = data_transform(valFile, max_len=args.max_len, batch_size=args.bz)
 test_iter, zero_value3, mean3, std3 = data_transform(testFile, max_len=args.max_len, batch_size=args.bz)

@@ -71,7 +71,7 @@ class LSTM(nn.Module):
         self.hidden_dim = hidden_dim
         self.out_dim = out_dim
         assert self.hidden_dim == self.out_dim
-        self.lstm = nn.LSTM(self.hidden_dim, self.out_dim, batch_first=True)
+        self.lstm = nn.LSTM(self.hidden_dim, self.out_dim, num_layers=2, batch_first=True)
         self.linear = nn.Linear(self.out_dim, 1)
         nn.init.kaiming_normal_(self.linear.weight, mode='fan_in')
 

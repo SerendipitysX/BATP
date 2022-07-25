@@ -55,9 +55,9 @@ else:
 set_env(seed=args.seed)
 
 # =============================== dataset ================================
-trainFile = 'D:/A-bus/bus_pytorch/data/dataset/partial-prediction/train.txt'
-valFile = 'D:/A-bus/bus_pytorch/data/dataset/partial-prediction/val.txt'
-testFile = 'D:/A-bus/bus_pytorch/data/dataset/partial-prediction/test.txt'
+trainFile = 'D:/A-bus/bus_pytorch/data/dataset/1-M3723/train.txt'
+valFile = 'D:/A-bus/bus_pytorch/data/dataset/1-M3723/val.txt'
+testFile = 'D:/A-bus/bus_pytorch/data/dataset/1-M3723/test.txt'
 train_iter, zero_value1, mean1, std1 = data_transform(trainFile, max_len=args.max_len, batch_size=args.bz)
 val_iter, zero_value2, mean2, std2 = data_transform(valFile, max_len=args.max_len, batch_size=args.bz)
 test_iter, zero_value3, mean3, std3 = data_transform(testFile, max_len=args.max_len, batch_size=args.bz)
